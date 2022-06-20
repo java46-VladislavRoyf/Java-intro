@@ -47,7 +47,7 @@ class IntegerPrimitivesTests {
 	}
 	@Test
 	void getLengthShort() {
-		assertEquals(1, IntegerPrimitives.getLengthShort());
+		assertEquals(2, IntegerPrimitives.getLengthShort());
 	}
 	
 	@Test

@@ -5,7 +5,7 @@ public class IntegerPrimitives {
 	public static byte getMaxByte() {
 		byte res = 1;
 		while(res > 0) {
-			res = (byte) ((int)res * 2);
+			res = (byte) (res * 2);
 		}
 		return (byte) (res - 1);
 	}
@@ -15,8 +15,8 @@ public class IntegerPrimitives {
 	}
 
 	public static int getLengthByte() {
-		int res = getLength(getMinByte());
-		return res;
+		
+		return getLength(getMaxByte());
 	}
 
 	public static char getMaxChar() {
@@ -33,14 +33,13 @@ public class IntegerPrimitives {
 	}
 
 	public static int getLengthChar() {
-		int res = getLength(getMinChar());
-		return res;
+		return getLength(getMaxChar());	
 	}
 
 	public static short getMaxShort() {
 		short res = 1;
 		while(res > 0) {
-			res = (short) ((int)res * 2);
+			res = (short) (res * 2);
 		}
 		return (short)(res - 1);
 	}
@@ -50,8 +49,7 @@ public class IntegerPrimitives {
 	}
 
 	public static int getLengthShort() {
-		int res = getLength(getMinShort());
-		return res;
+		return getLength(getMaxShort());
 	}
 
 	public static int getMaxInt() {
@@ -67,7 +65,7 @@ public class IntegerPrimitives {
 	}
 
 	public static int getLengthInt() {
-		int res = getLength(getMinInt());
+		int res = getLength(getMaxInt());
 		return res;
 	}
 
@@ -83,20 +81,20 @@ public class IntegerPrimitives {
 		return (getMaxLong() + 1);
 	}
 
-	public static long getLengthLong() {
-		int res = getLength(getMinLong());
-		return res;
+	public static int getLengthLong() {
+		
+		return getLength(getMaxLong());
 	}
 	
 	private static int getLength(long x) {
-		int count = 0;
-		x = -x;
-		while(x > 1) {
-			x = x / 2;
+		long value = 1;
+		int count = 1;
+		while(value < x && value > 0) {
+			value *= 2;
 			count++;
 		}
 
-		return ((count +1) / 8);
+		return count / 8;
 	}
 
 }
